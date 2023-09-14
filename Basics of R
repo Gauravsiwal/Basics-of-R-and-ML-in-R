@@ -1,0 +1,163 @@
+# R Weekdays 5 PM
+# Data Types in R
+23
+typeof(23)
+56.23
+typeof(56.23)
+76L
+typeof(76L)
+78.6L
+-21L
+typeof(-21L)
+5+8i
+typeof(5+8i)
+'Gaurav'
+typeof('hello')
+typeof('gaurav012@gmail.com')
+
+# Type Casting
+56
+typeof(56)
+val = as.integer(56)
+val = as.integer('hello')
+val = as.integer(6+7i)
+val = as.integer(TRUE)
+val = as.integer(FALSE)
+
+val = as.character(23L)
+val = as.character(TRUE)
+val = as.character(6+8i)
+
+val = as.double(67L)
+
+val = as.logical(56)
+val = as.logical(0)
+
+val = as.complex(6)
+
+
+# Assingment Operator (=,<-,->)
+name = 'ravi'
+23 = age
+23 -> age
+name <- age
+
+# Arithmatic operators
+# +,-,*,/,%/%,^,%%
+a = 23
+b = 45
+a+b
+a-b
+a*2
+5/2
+5%/%2
+3^3
+25^2
+7%%2
+19%%3
+sqrt(25)
+
+'Hello'+'Hi'
+'Hi'*2
+
+# is. function
+is.integer(5L)
+is.character('hello')
+is.logical(FALSE)
+is.character(78)
+
+# Output in R
+print('Hello World')
+print('My name is Gaurav
+I work at Techstack
+I am from Delhi')
+
+cat('My name is Gaurav
+I work at Techstack
+I am from Delhi')
+
+cat('Rajesh is',26,'Years Old')
+
+cat('Hello\nRavi')
+
+cat('one\ttwo\tthree\nfour\tfive\tsix')
+
+cat("He said 'Hi' to her")
+cat('she replied "Hello" to him')
+cat('I\'ll Say "Hello" to her')
+
+# Input command
+age <- readline('Enter your age')
+temp = as.double(readline("Enter the temperature"))
+typeof(temp)
+
+# WAP to display the area and circumference of a circle 
+# by taking radius as input.
+pi
+rad = as.double(readline('Enter the radius: '))
+area = pi*rad^2
+circum = 2*pi*rad
+cat('Area:',area,'\nCircumference:',circum)
+cat(sprintf('Area: %.2f\nCircumference: %.2f',area,circum))
+
+# WAP to calculate the attendance by taking no of classes held
+# and no of classes attended as input
+classes_held = as.integer(readline('Enter the classes held: '))
+classes_atten = as.integer(readline('Enter the classes Attended: '))
+atten = (classes_atten/classes_held)*100
+sprintf('Attendance is: %.2f%%',atten)
+
+# WAP to take principle amount, rate in % and time in years as input and calculate the SI
+# SI = (p*r*t)/100
+
+# GST = 5%
+# Service charge = 2%
+
+#Relational operators
+# >,<,>=,<=,==,!=
+a>b
+b>a
+23 < a+b
+a+22==b
+56!=67
+
+# Logical operators
+#  &,&&,|,||,!
+a = 23
+b = 17
+c = 30
+b>a & c>b
+34>a & c>b
+b<=c | b<a
+
+val1 = c(TRUE,TRUE,FALSE)
+val2 = c(TRUE,TRUE,TRUE)
+
+val1&val2
+val1&&val2
+
+val1|val2
+val1||val2
+
+!(a>b)
+!TRUE
+!(c>=a+b)
+
+# Flow Control Statements
+# if statement
+age<- as.integer(readline('Enter your age: '))
+if(age<18){
+  print('Still young to enter')
+}
+
+# if-else
+age<- as.integer(readline('Enter your age: '))
+if(age<18){
+  print('Still young to enter')
+}else{
+  print('Welcome Sir')
+}
+
+
+
+
