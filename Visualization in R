@@ -1,0 +1,83 @@
+install.packages('ggplot2')
+installed.packages()
+library(ggplot2)
+detach("package:ggplot2", unload = TRUE)
+
+
+
+# qplot - quick plot
+data(mtcars)
+force(mtcars)
+View(mtcars)
+
+head(mtcars)
+df <- mtcars[,c('mpg','cyl','wt')]
+head(df)
+df$wt <- df$wt + 2
+head(df)
+summary(df)
+graphics.off()
+qplot(wt, mpg, data=df)
+qplot(wt, mpg, data=df,color=factor(cyl), geom=c('point'))
+qplot(wt, mpg, data=df,shape=factor(cyl), geom=c('point'))
+qplot(wt, mpg, data=df,shape=factor(cyl),color=factor(cyl), geom=c('point'))
+
+qplot(wt, mpg, data=df,color=factor(cyl), geom=c('boxplot'))
+qplot(wt, mpg, data=df,color=factor(cyl), geom=c('violin'))
+qplot(mpg, data=df,color = factor(cyl), geom=c('histogram'))
+qplot(mpg, data=df,fill = factor(cyl), geom=c('histogram'))
+
+# boxplot with ggplot
+head(ToothGrowth)
+df2 = ToothGrowth
+summary(df2)
+df2$dose = factor(df2$dose)
+
+ggplot(df2, aes(x=dose,y=len))+ geom_boxplot()
+ggplot(df2, aes(x=dose,y=len))+ geom_boxplot(outlier.color = 'blue', outlier.shape = 13, outlier.size = 5)
+
+p <- ggplot(df2, aes(x=dose,y=len, color=dose))
+p + geom_boxplot(outlier.shape = 9, outlier.size = 5)
+p <- ggplot(df2, aes(x=dose,y=len, fill=dose))
+p + geom_boxplot(outlier.colour = 'red',outlier.shape = 8)
+
+# scatter plot using ggplot
+head(df)
+summary(df)
+df$cyl = as.factor(df$cyl)
+
+p <- ggplot(df, aes(x=wt,y=mpg,color=cyl))
+p + geom_point()
+p + geom_point(size=2, shape= 8)
+
+p + geom_point()+ geom_smooth()
+p + geom_point()+ geom_smooth(method = lm)
+p + geom_point()+ geom_smooth(method = lm, se=FALSE)
+ggplot(df,aes(x=wt,y=mpg))+geom_point()+geom_smooth(method = lm, se=FALSE)
+
+p + geom_point()+ geom_smooth()
+p + geom_point()
+p + geom_point(aes(size=df$cyl))
+ggplot(df, aes(x=wt,y=mpg, color=as.integer(cyl),shape=cyl))+ geom_point()
+
+# barplot using ggplot
+df3 = data.frame(student=c('Ravi','Suman','Vikas','Lalit','Rohan'),
+                 marks = c(67,86,77,75,63))
+df3
+View(df3)
+p = ggplot(df3, aes(x=student, y=marks))
+p + geom_col()
+q = ggplot(df3, aes(x=marks,y=student))
+q+ geom_bar(stat = 'identity')
+p + geom_bar(stat = 'identity') + coord_flip()
+p + geom_bar(stat = 'identity', width = 0.5, fill='steelblue')
+p + geom_bar(stat = 'identity', width = 0.7, fill='steelblue', color='red') + geom_text(aes(label=marks, vjust='top'),colour='white')
+
+# Pie chart
+q = ggplot(df3, aes(x='',y=marks, fill=student))
+q + geom_bar(stat='identity', width=1)
+pie = q + geom_bar(stat='identity', width=1) + coord_polar(theta = 'y',start=1.5708, direction = 1)
+pie
+
+
+
